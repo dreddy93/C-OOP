@@ -1,0 +1,48 @@
+Create a class Point and a class Rectangle. The Point should hold coordinates X and Y and the Rectangle should hold 2 Points – 
+its top left and bottom right corners. In the Rectangle class, you should implement a Contains(Point point) method that returns 
+true or false, based on whether the Point given as attribute is inside or outside of the Rectangle object. Points on the side of a 
+Square are considered inside.
+Input
+•	On the first line read the coordinates of the top left and bottom right corner of the Rectangle in the format: "{topLeftX} 
+{topLeftY} {bottomRightX} {bottomRightY}".
+•	On the second line, read an integer N and on the next N lines, read the coordinates of points.
+Output
+•	For each point, print out the result of the Contains() method.
+Examples
+input	output		
+0 0 3 3
+5
+0 0
+0 1
+4 4
+5 3
+1 2	
+                True
+                True
+                False
+                False
+                True		
+2 -3 12 3
+4
+8 -1
+11 3
+1 1
+2 4	
+                True
+                True
+                False
+                False		
+5 8 12 15
+6
+0 0
+5 8
+12 15
+8 15
+7 15
+8 12	
+                False
+                True
+                True
+                True
+                True
+                True
