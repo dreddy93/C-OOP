@@ -1,0 +1,70 @@
+using System;
+using System.Linq;
+
+namespace _1._P02_Rectangle
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            int[] cordinates = ParseMethod();
+
+            Point topleft = new Point(cordinates[0], cordinates[1]);
+            Point bottomRight = new Point(cordinates[2], cordinates[3]);
+
+            Rectamgle rectangle = new Rectamgle(topleft, bottomRight);
+
+            int points = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < points; i++)
+            {
+                int[] randomPoint = ParseMethod();
+                Point pointToCheck = new Point(randomPoint[0], randomPoint[1]);
+
+                Console.WriteLine(rectangle.Contains(pointToCheck));
+            }
+        }
+
+        private static int[] ParseMethod()
+        {
+            return Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+        }
+    }
+    
+    public class Rectamgle
+    {
+        
+
+        public Point TopLeft { get; set; }
+
+        public Point BottomRight { get; set; }
+
+        public bool Contains(Point point)
+        {
+            bool insideByX = point.CordinateX >= TopLeft.CordinateX && point.CordinateX <= BottomRight.CordinateX;
+            bool insideByY = point.CordinateY >= TopLeft.CordinateY && point.CordinateY <= BottomRight.CordinateY;
+            return insideByY && insideByX;
+        }
+
+        public Rectamgle(Point topleft, Point bottomRight)
+        {
+            TopLeft = topleft;
+            BottomRight = bottomRight;
+        }
+    }
+    
+     public class Point
+    {
+
+        public int CordinateX { get; set; }
+
+        public int CordinateY { get; set; }
+
+        public Point(int cordinateX, int cordinateY)
+        {
+            CordinateX = cordinateX;
+            CordinateY = cordinateY;
+
+        }
+    }
+}
